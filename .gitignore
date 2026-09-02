@@ -1,0 +1,19 @@
+# Grandle cache and build
+.gradle/
+build/
+out/
+
+# IntelliJ IDEA configuration
+.idea/
+*.iml
+*.iws
+
+#  VS Code / Eclipse configuration
+.vscode/
+.project
+.classpath
+.settings/
+
+# File systems
+.DS_Store
+Thumbs.db
