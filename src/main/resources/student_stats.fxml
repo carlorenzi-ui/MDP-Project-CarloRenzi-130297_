@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="it.unicam.cs.mpgc.afc250713.view.StudentStatsController"
+      styleClass="afc-stats-panel" spacing="10" prefWidth="260">
+
+    <padding>
+        <Insets top="16" bottom="16" left="14" right="14"/>
+    </padding>
+
+    <Label text="LIBRETTO" styleClass="afc-panel-title"/>
+
+    <Label text="Morale" styleClass="afc-stat-label"/>
+    <ProgressBar fx:id="moraleBar" progress="1.0" styleClass="afc-bar-morale" prefWidth="200"/>
+    <Label fx:id="moraleValue" text="100 / 100" styleClass="afc-stat-val"/>
+
+    <Label text="Budget" styleClass="afc-stat-label"/>
+    <ProgressBar fx:id="budgetBar" progress="1.0" styleClass="afc-bar-budget" prefWidth="200"/>
+    <Label fx:id="budgetValue" text="100 / 200" styleClass="afc-stat-val"/>
+
+    <Label text="Stanchezza" styleClass="afc-stat-label"/>
+    <ProgressBar fx:id="fatigueBar" progress="0.0" styleClass="afc-bar-fatigue" prefWidth="200"/>
+    <Label fx:id="fatigueValue" text="0 / 100" styleClass="afc-stat-val"/>
+
+    <Label text="CFU" styleClass="afc-stat-label"/>
+    <Label fx:id="cfuValue" text="0 / 60" styleClass="afc-stat-val-big"/>
+
+    <Label text="Media" styleClass="afc-stat-label"/>
+    <Label fx:id="mediaValue" text="-" styleClass="afc-stat-val-big"/>
+
+    <Label text="Anno fuori corso" styleClass="afc-stat-label"/>
+    <Label fx:id="annoValue" text="3" styleClass="afc-stat-val-big"/>
+
+    <Label text="ZAINO" styleClass="afc-panel-title"/>
+    <VBox fx:id="zainoContainer" spacing="4"/>
+
+</VBox>

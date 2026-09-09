@@ -1,0 +1,12 @@
+{
+  "studente": { "morale": 100, "power": 15 },
+
+  "analisi_1_appello": { "morale": 60, "power": 20 },
+  "programmazione_1_appello": { "morale": 70, "power": 18 },
+  "fisica_1_appello": { "morale": 65, "power": 22 },
+  "chimica_appello": { "morale": 55, "power": 16 },
+  "inglese_appello": { "morale": 40, "power": 10 },
+  "analisi_2_appello": { "morale": 85, "power": 28 },
+  "economia_appello": { "morale": 50, "power": 14 },
+  "diritto_appello": { "morale": 45, "power": 12 }
+}

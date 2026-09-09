@@ -1,0 +1,66 @@
+{
+  "analisi_1": {
+    "name": "Analisi Matematica 1",
+    "description": "Il classico scoglio del primo anno. Limiti, derivate e tanta, tanta ansia.",
+    "difficulty": "DIFFICILE",
+    "cfuReward": 12,
+    "rewards": { "REDBULL": 2 },
+    "examSpawns": { "analisi_1_appello": 1 }
+  },
+  "programmazione_1": {
+    "name": "Programmazione I",
+    "description": "Compilatori permettendo, un esame alla tua portata.",
+    "difficulty": "FACILE",
+    "cfuReward": 9,
+    "rewards": { "APPUNTI": 1 },
+    "examSpawns": { "programmazione_1_appello": 1 }
+  },
+  "fisica_1": {
+    "name": "Fisica Generale 1",
+    "description": "Meccanica, forze, e la costante voglia di mollare tutto.",
+    "difficulty": "DIFFICILE",
+    "cfuReward": 9,
+    "rewards": { "PASTO_CALDO": 2 },
+    "examSpawns": { "fisica_1_appello": 1 }
+  },
+  "chimica": {
+    "name": "Chimica Generale",
+    "description": "Formule, reazioni e un pizzico di fortuna al laboratorio.",
+    "difficulty": "FACILE",
+    "cfuReward": 6,
+    "rewards": { "REDBULL": 1, "PASTO_CALDO": 1 },
+    "examSpawns": { "chimica_appello": 1 }
+  },
+  "inglese": {
+    "name": "Lingua Inglese",
+    "description": "Un esame quasi rilassante, se solo non fosse l'ultimo prima della sessione estiva.",
+    "difficulty": "FACILE",
+    "cfuReward": 3,
+    "rewards": { "PASTO_CALDO": 1 },
+    "examSpawns": { "inglese_appello": 1 }
+  },
+  "analisi_2": {
+    "name": "Analisi Matematica 2",
+    "description": "Il fratello maggiore di Analisi 1. Ancora piu' temuto.",
+    "difficulty": "DIFFICILE",
+    "cfuReward": 12,
+    "rewards": { "GRUPPO_STUDIO": 1, "REDBULL": 1 },
+    "examSpawns": { "analisi_2_appello": 1 }
+  },
+  "economia": {
+    "name": "Economia Aziendale",
+    "description": "Bilanci, costi e ricavi. Sorprendentemente umano, per una volta.",
+    "difficulty": "FACILE",
+    "cfuReward": 6,
+    "rewards": { "APPUNTI": 1 },
+    "examSpawns": { "economia_appello": 1 }
+  },
+  "diritto": {
+    "name": "Diritto Privato",
+    "description": "Codici, articoli e una quantita' indecente di memoria richiesta.",
+    "difficulty": "FACILE",
+    "cfuReward": 9,
+    "rewards": { "GRUPPO_STUDIO": 1 },
+    "examSpawns": { "diritto_appello": 1 }
+  }
+}

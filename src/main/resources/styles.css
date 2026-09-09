@@ -1,0 +1,170 @@
+.afc-root {
+    -fx-background-color: #f3ead9;
+    -fx-font-family: "Georgia", serif;
+}
+
+.afc-header {
+    -fx-background-color: #4a3324;
+}
+
+.afc-title {
+    -fx-text-fill: #f3ead9;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 2px;
+}
+
+.afc-subtitle {
+    -fx-text-fill: #cbb896;
+    -fx-font-size: 13px;
+    -fx-font-style: italic;
+}
+
+.afc-stats-panel {
+    -fx-background-color: #4a3324;
+    -fx-border-color: #2e2015;
+    -fx-border-width: 0 2 0 0;
+}
+
+.afc-panel-title {
+    -fx-text-fill: #e8c77e;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 6 0 0 0;
+}
+
+.afc-section-label {
+    -fx-text-fill: #4a3324;
+    -fx-font-size: 13px;
+    -fx-font-style: italic;
+}
+
+.afc-stat-label {
+    -fx-text-fill: #cbb896;
+    -fx-font-size: 11px;
+}
+
+.afc-stat-val {
+    -fx-text-fill: #f3ead9;
+    -fx-font-size: 12px;
+}
+
+.afc-stat-val-big {
+    -fx-text-fill: #e8c77e;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.afc-content-area {
+    -fx-background-color: #f3ead9;
+}
+
+.afc-panel {
+    -fx-background-color: #fffaf0;
+    -fx-background-radius: 6;
+    -fx-border-color: #cbb896;
+    -fx-border-radius: 6;
+    -fx-padding: 20;
+}
+
+.afc-bar-morale > .bar {
+    -fx-background-color: #8c1f28;
+}
+
+.afc-bar-budget > .bar {
+    -fx-background-color: #2f6f4e;
+}
+
+.afc-bar-fatigue > .bar {
+    -fx-background-color: #7a5230;
+}
+
+.afc-button, .afc-button-small, .afc-button-tiny, .afc-button-strategy, .afc-button-danger {
+    -fx-background-color: #4a3324;
+    -fx-text-fill: #f3ead9;
+    -fx-background-radius: 4;
+    -fx-font-family: "Georgia", serif;
+    -fx-cursor: hand;
+}
+
+.afc-button {
+    -fx-font-size: 13px;
+    -fx-padding: 10 18;
+}
+
+.afc-button-small {
+    -fx-font-size: 12px;
+    -fx-padding: 6 12;
+}
+
+.afc-button-tiny {
+    -fx-font-size: 10px;
+    -fx-padding: 3 8;
+}
+
+.afc-button-strategy {
+    -fx-font-size: 12px;
+    -fx-padding: 12 16;
+    -fx-text-alignment: left;
+    -fx-alignment: center-left;
+}
+
+.afc-button-danger {
+    -fx-background-color: #8c1f28;
+    -fx-font-size: 12px;
+    -fx-padding: 8 14;
+}
+
+.afc-button:hover, .afc-button-small:hover, .afc-button-tiny:hover,
+.afc-button-strategy:hover, .afc-button-danger:hover {
+    -fx-background-color: #6a4a34;
+}
+
+.afc-subject-row {
+    -fx-background-color: #f3ead9;
+    -fx-background-radius: 4;
+    -fx-padding: 10;
+    -fx-alignment: center-left;
+}
+
+.afc-week-label {
+    -fx-text-fill: #4a3324;
+    -fx-font-weight: bold;
+}
+
+.afc-footer {
+    -fx-background-color: #e6dcc4;
+    -fx-border-color: #cbb896;
+    -fx-border-width: 2 0 0 0;
+}
+
+.afc-log-scroll {
+    -fx-background-color: transparent;
+}
+
+.afc-log-container {
+    -fx-background-color: #fffaf0;
+}
+
+.afc-log-line {
+    -fx-text-fill: #4a3324;
+    -fx-font-size: 11px;
+}
+
+.afc-zaino-item {
+    -fx-background-color: #5a4030;
+    -fx-background-radius: 4;
+    -fx-padding: 8;
+}
+
+.afc-rules-text {
+    -fx-text-fill: #4a3324;
+    -fx-font-size: 13px;
+}
+
+.afc-rules-heading {
+    -fx-text-fill: #4a3324;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 0 0 0;
+}
