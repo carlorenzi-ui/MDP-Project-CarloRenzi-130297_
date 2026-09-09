@@ -9,3 +9,5 @@ public class Launcher {
         JavaFXApp.main(args);
     }
 }
+
+// Main application launch entry point
