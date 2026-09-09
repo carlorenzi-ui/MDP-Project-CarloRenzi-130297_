@@ -1,77 +1,93 @@
-# Anno Fuori Corso - "L'Ultimo Appello"
+﻿# AnnoFuoriCorso
 
-Progetto per Metodologie di Programmazione / Modellazione e Gestione della
-Conoscenza (AA 2025/26), sviluppato seguendo la stessa architettura e gli
-stessi pattern di progettazione della codebase di riferimento fornita, ma
-applicati a un gioco completamente diverso: un life-simulator RPG in cui si
-interpreta uno studente fuori corso da 3 anni che deve laurearsi prima di
-esaurire morale e budget.
+## 📌 Descrizione del Progetto
 
-## Come si gioca
+AnnoFuoriCorso è un gioco gestionale e di simulazione accademica realizzato in Java con interfaccia grafica JavaFX. Il giocatore veste i panni dello studente fuoricorso impegnato a superare gli esami del proprio piano di studi, gestendo con equilibrio la fatica, il budget economico e il tempo a disposizione.
 
-- **Morale (0-100)**: la salute mentale. Se arriva a 0, "abbandoni gli studi".
-- **Budget (0-200)**: i soldi di famiglia + lavoretti. Se arriva a 0, il
-  morale crolla (bancarotta).
-- **Stanchezza (0-100)**: cresce a ogni tentativo d'esame. Se arriva al
-  massimo, va in burnout (morale a 0).
-- **CFU / Media**: il progresso verso la laurea e la qualita' del finale.
+Durante le settimane accademiche è possibile scegliere tra studio individuale, uscite sociali per abbattere lo stress accumulato o lavori part-time per incrementare le proprie disponibilità finanziarie. Il giocatore può acquistare e consumare oggetti (RedBull, Pasto Caldo, Appunti, Gruppi di Studio), affrontare appelli d'esame contro docenti rivali selezionando strategie differenti (studio standard, nottata intensa, tentativi disperati) e accumulare crediti formativi fino al raggiungimento di finali alternativi. Lo stato di gioco può essere salvato e ripreso in qualsiasi momento grazie alla persistenza su file in formato JSON.
 
-Ogni settimana scegli un'azione (Studia / Lavoretto / Esci con gli amici).
-Ogni 4 settimane si apre la sessione d'esame: puoi tentare una materia
-scegliendo una tattica:
-- **Ripasso dell'ultimo minuto** (studio matto): 80% successo, -40 morale.
-- **Domanda a piacere** (studio pigro): buone chance solo se la media > 24.
-- **Copiare** (dilemma etico): 100% successo, ma 30% di essere beccati
-  (esame annullato, morale a zero).
+---
 
-Il gioco termina con uno di quattro finali: **Laurea con Lode**, **Il Pezzo
-di Carta**, **Abbandono**, **Cambio Facolta'**.
+## 🚀 Come eseguire il progetto
 
-## Come avviare il progetto
+### Prerequisiti
+* Java 21 (LTS) o superiore
+* Gradle (è incluso il wrapper `./gradlew` / `gradlew.bat`, non serve installarlo separatamente)
 
-```
+### Download del repository
+
+```bash
+git clone [https://github.com/carlorenzi-ui/MDP-Project-CarloRenzi-130297_.git](https://github.com/carlorenzi-ui/MDP-Project-CarloRenzi-130297_.git)
+cd MDP-Project-CarloRenzi-130297_
+Build del progetto
+Linux / macOS:
+
+Bash
+./gradlew build
+Windows (PowerShell o CMD):
+
+PowerShell
+.\gradlew.bat build
+Esecuzione
+Linux / macOS:
+
+Bash
 ./gradlew run
-```
+Windows (PowerShell o CMD):
 
-## Mappatura dei pattern rispetto al progetto di riferimento
+PowerShell
+.\gradlew.bat run
+🏛️ Architettura
+Il progetto è strutturato secondo il pattern architetturale MVC (Model-View-Controller) e i principi SOLID, all'interno del package base it.unicam.cs.mpgc.afc250713:
 
-| Pattern / concetto              | Riferimento (Dungeon Crawler)         | Questo progetto (Anno Fuori Corso)             |
-|----------------------------------|----------------------------------------|--------------------------------------------------|
-| Combattimento / entita'           | `Combatant`, `Damageable`, `Attacker`, `AbstractCombatant`, `CombatStats` | `Rival`, `Vulnerable`, `Challenger`, `AbstractRival`, `ChallengeStats` |
-| Personaggio giocante              | `AbstractHero`, `Warrior`             | `AbstractStudent`, `Fuoricorso`                   |
-| Risorsa "fame"                    | `HungerSystem`                        | `FatigueSystem` (stanchezza / burnout)            |
-| Progressione                      | `LevelSystem` (XP/livello)            | `AcademicProgress` (CFU/anno/media)               |
-| Nuova risorsa economica           | -                                      | `BudgetSystem` (soldi, bancarotta)                |
-| Equipaggiamento (Strategy-ish)    | `EquipmentManager`, `BuffType`         | `StudyEquipmentManager`, `StudyBuffType`          |
-| Inventario                        | `Inventory`                            | `Zaino`                                           |
-| Oggetti (Strategy pattern)        | `Item`, `HealthPotion`, `Food`, `Sword`, `Armor` | `Item`, `RedBull`, `PastoCaldo`, `Appunti`, `GruppoStudio` |
-| Nemico / boss                     | `Enemy`, `EnemyFactory`               | `Exam`, `ExamFactory`                             |
-| Area esplorabile                  | `Dungeon`, `DungeonFactory`           | `Subject`, `SubjectFactory`                       |
-| Ricompense (Visitor pattern)      | `Loot`, `LootVisitor`, `ResourceLoot` | `Reward`, `RewardVisitor`, `ItemReward`           |
-| Nuovo: tattiche d'esame (Strategy)| -                                      | `ExamStrategy` -> `HardStudyStrategy`, `LazyStudyStrategy`, `CheatStrategy` |
-| Nuovo: azioni settimanali (Strategy)| -                                    | `WeeklyAction` -> `StudyAction`, `PartTimeJobAction`, `SocialOutingAction` |
-| Nuovo: finali multipli            | -                                      | `EndingType` (enum a 4 valori)                    |
-| Orchestratore centrale            | `GameManager`                         | `GameManager`                                     |
-| Gestione turno di scontro         | `CombatManager<F1,F2>`                | `ExamManager` (risoluzione one-shot via Strategy) |
-| Macchina a stati (State pattern)  | `GameState`, `HubState`, `CombatState`, `GameOverState`, `StateType` | `AcademicState`, `CampusState`, `ExamAttemptState`, `EndingState`, `AcademicPhase` |
-| Eventi / log                      | `EventDispatcher`                     | `EventDispatcher`                                 |
-| Persistenza (DTO + Mapper)        | `HeroSaveDTO`, `HeroMapper`, `SaveManager`, `StorageService`, `FileStorageService` | `StudentSaveDTO`, `StudentMapper`, `SaveManager`, `StorageService`, `FileStorageService` |
-| GUI (JavaFX MVC)                  | `JavaFXApp`, `GameController`, `HeroStatsController`, `UILootRendererVisitor` | `JavaFXApp`, `GameController`, `StudentStatsController`, `RewardRendererVisitor` |
+model — Racchiude le entità di dominio e le regole del gioco, completamente indipendenti dall'interfaccia grafica:
 
-## Note di progettazione
+student: gestione dello stato dello studente, fatica (FatigueSystem), finanze (BudgetSystem), avanzamento della carriera (AcademicProgress) ed equipaggiamento nello zaino (Zaino, StudyEquipmentManager).
 
-- **State pattern**: il flusso di gioco (`CampusState` -> `ExamAttemptState`
-  -> `EndingState`) impedisce azioni non valide per costruzione (es. non puoi
-  tentare un secondo esame mentre sei gia' dentro uno).
-- **Strategy pattern**: sia le tattiche d'esame (`ExamStrategy`) sia le
-  azioni settimanali (`WeeklyAction`) sono intercambiabili e aggiungibili
-  senza modificare `GameManager` (Open/Closed Principle).
-- **Visitor pattern**: le ricompense (`Reward`) vengono renderizzate in UI
-  tramite `RewardRendererVisitor`, disaccoppiando la logica di dominio dalla
-  presentazione.
-- **Dependency Inversion**: la persistenza dipende dall'astrazione
-  `StorageService`, non da un file system concreto - sostituibile con
-  database o cloud senza toccare `SaveManager`.
-- **Dilemma etico**: la scelta "Copiare" (`CheatStrategy`) e il suo esito
-  vengono registrati nello storico (`ethicalChoiceHistory`) e persistiti nel
-  salvataggio, come richiesto dalla specifica.
+action: azioni settimanali eseguibili (StudyAction, SocialOutingAction, PartTimeJobAction) derivate dal contratto WeeklyAction.
+
+item: gerarchia di oggetti consumabili e di potenziamento gestiti tramite ItemRegistry.
+
+subject & exam: modellazione degli insegnamenti, fabbriche dedicate (SubjectFactory, ExamFactory) e gestione dei premi d'esame basata su Visitor Pattern (RewardVisitor, ItemReward).
+
+challenge & strategy: logica degli scontri d'esame contro i docenti rivali e adozione dello Strategy Pattern per definire la condotta d'esame (LazyStudyStrategy, HardStudyStrategy, CheatStrategy).
+
+ending: gestione dei possibili esiti della carriera universitaria dello studente (EndingType).
+
+controller — Coordina la logica applicativa e il flusso degli stati:
+
+core: orchestrazione generale delle partite tramite GameManager ed ExamManager.
+
+state: macchina a stati finiti per le fasi di gioco tramite lo State Pattern (CampusState, ExamAttemptState, EndingState).
+
+events: disaccoppiamento dei componenti mediante notifica con EventDispatcher.
+
+view — Livello di presentazione grafico realizzato in JavaFX con interfacce FXML e stili CSS (GameController, StudentStatsController), avviato tramite JavaFXApp e la classe di bootstrap Launcher.
+
+persistence — Meccanismo di salvataggio e caricamento dello stato basato su Data Transfer Object (StudentSaveDTO), mapper per la conversione (StudentMapper) e gestione I/O su file (FileStorageService, SaveManager) in formato JSON.
+
+utils — Servizi di supporto per il parsing e caricamento dei dati statici (stats.json, subjects.json) dalle risorse dell'applicazione (SubjectLoader, ChallengeStatsService).
+
+🤖 Uso di strumenti di AI
+Per lo sviluppo del progetto sono stati impiegati strumenti di Intelligenza Artificiale (LLM) a supporto dell'attività di programmazione, con costante revisione e adattamento personale di ogni soluzione proposta.
+
+In particolare, l'AI è stata utilizzata per:
+
+Supporto al debugging: identificazione e correzione di errori di compilazione, risoluzione di problemi nei percorsi dei file e configurazione del plugin JavaFX in Gradle.
+
+Stesura della documentazione: revisione stilistica e generazione delle descrizioni Javadoc per metodi e interfacce di package.
+
+Generazione di codice boilerplate: implementazione iniziale di classi DTO, costruttori, metodi getter/setter e mapping dei campi per la persistenza JSON.
+
+Studio e applicazione dei Design Pattern: chiarimento concettuale e validazione dell'integrazione pratica dei pattern architetturali (Visitor, Strategy, State, Factory, Singleton/Registry) nel dominio accademico.
+
+Tutte le scelte architetturali, la struttura dei package, la logica di calcolo del gioco e la verifica del corretto funzionamento sono state gestite e validate direttamente dallo sviluppatore.
+
+🛠️ Tecnologie utilizzate
+Java 21 — Linguaggio di programmazione
+
+JavaFX — Framework grafico per interfacce utente (FXML e CSS)
+
+Gradle — Build automation tool con Kotlin DSL (build.gradle.kts)
+
+Gson — Libreria per la serializzazione e deserializzazione JSON dei salvataggi
