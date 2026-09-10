@@ -1,4 +1,3 @@
-﻿Ecco il testo integrale e pulito del file, pronto per essere incollato direttamente dentro `README.md`:
 
 # AnnoFuoriCorso
 
